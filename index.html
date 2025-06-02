@@ -4,58 +4,130 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Event Day Schedule & Tasks</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lora:wght@400;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: sans-serif;
-            margin: 20px;
+            font-family: 'Open Sans', sans-serif; /* Clean, modern sans-serif for readability */
+            margin: 0;
+            padding: 30px 20px; /* More padding around the content */
+            background-color: #FDF8ED; /* Very light, creamy background */
+            color: #4A4A4A; /* Soft charcoal for body text */
+            line-height: 1.6;
         }
 
-        h1, h2 {
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif; /* Elegant serif for headings */
             text-align: center;
+            color: #8D5A3C; /* Warm, rich terracotta */
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            font-size: 3em;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #D4B88D; /* Subtle line under main title */
+        }
+
+        h2 {
+            font-size: 2.2em;
+            margin-top: 40px;
+            margin-bottom: 15px;
+            color: #6C816D; /* Muted sage green */
+        }
+
+        h3 {
+            font-size: 1.5em;
+            color: #8D5A3C; /* Terracotta for subheadings */
+            margin-bottom: 8px;
         }
 
         table {
             width: 100%;
             border-collapse: collapse;
-            margin-top: 20px;
+            margin-top: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08); /* More pronounced, soft shadow */
+            background-color: #FFFFFF; /* White background for the table */
+            border-radius: 8px; /* Slightly rounded corners for the table */
+            overflow: hidden; /* Ensures rounded corners apply to children */
         }
 
         th, td {
-            border: 1px solid #e4e7eb;
-            padding: 8px;
+            border: 1px solid #EAE0D5; /* Lighter, subtle border */
+            padding: 12px 15px; /* More generous padding */
             text-align: left;
+            color: #5A5A5A; /* Darker grey for table text */
         }
 
         th {
-            background-color: #b3c1e6;
+            background-color: #A2B29F; /* Muted olive green */
+            color: #F8F8F8; /* Off-white text for contrast */
+            font-weight: 600; /* Slightly bolder for headers */
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .role-description {
-            margin-top: 10px;
+            margin: 25px auto; /* Center and add more vertical margin */
+            max-width: 800px; /* Limit width for better readability */
+            background-color: #FFFDF8; /* Creamy background for description box */
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.06); /* Soft shadow */
+            border-left: 5px solid #D4B88D; /* Artistic accent border */
+        }
+
+        .role-description p {
+            color: #5A5A5A;
+            margin-bottom: 10px;
         }
 
         .filter-container {
-            margin-bottom: 15px;
+            margin-bottom: 25px; /* More space below filter */
             text-align: right;
+            padding: 10px 0;
         }
 
         .filter-container select {
-            padding: 8px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
+            padding: 10px 15px;
+            border: 1px solid #D4B88D;
+            border-radius: 5px;
             font-size: 1em;
+            background-color: #FFFDF8;
+            color: #5A5A5A;
+            appearance: none; /* Remove default select arrow */
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            background-image: url('data:image/svg+xml;utf8,<svg fill="%238D5A3C" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>'); /* Custom arrow */
+            background-repeat: no-repeat;
+            background-position: right 8px center;
+            background-size: 20px;
+            cursor: pointer;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
         }
 
         .chinese-translation {
             display: block;
-            font-size: 0.8em;
+            font-family: 'Lora', serif; /* A more elegant font for Chinese */
+            font-size: 0.75em;
             color: #777;
+            margin-top: 5px;
+            opacity: 0.8; /* Slightly subdued */
         }
 
         /* Responsive styles */
         @media screen and (max-width: 768px) {
             body {
-                margin: 10px;
+                padding: 20px 10px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            h2 {
+                font-size: 1.6em;
             }
 
             .filter-container {
@@ -78,35 +150,41 @@
             }
 
             tr {
-                border: 1px solid #e4e7eb;
+                border: 1px solid #D4B88D;
                 margin-bottom: 15px;
+                background-color: #FFFFFF; /* Ensure rows have white background on mobile */
+                border-radius: 8px; /* Rounded corners for individual rows */
+                box-shadow: 0 2px 8px rgba(0,0,0,0.05); /* Soft shadow for individual rows */
             }
 
             td {
                 border: none;
-                border-bottom: 1px solid #e4e7eb;
+                border-bottom: 1px solid #EAE0D5;
                 position: relative;
-                padding-left: 50%; /* Adjust this percentage if needed */
+                padding-left: 50%;
                 text-align: right;
-                /* Add these properties to prevent text overlap */
-                word-wrap: break-word; /* Breaks long words */
-                overflow-wrap: break-word; /* Modern equivalent */
+                word-wrap: break-word;
+                overflow-wrap: break-word;
+                color: #4A4A4A;
             }
 
             td:last-child {
-                border-bottom: 0; /* Remove bottom border for the last cell in a row */
+                border-bottom: 0;
             }
 
             td:before {
                 position: absolute;
-                top: 6px;
-                left: 6px;
-                width: 45%; /* Adjust this percentage, ensure it's less than padding-left */
+                top: 12px; /* Adjust vertical alignment for padding */
+                left: 15px; /* Adjust horizontal alignment for padding */
+                width: calc(45% - 15px); /* Adjust width considering left padding */
                 padding-right: 10px;
-                white-space: normal; /* Allow text to wrap */
+                white-space: normal;
                 text-align: left;
                 font-weight: bold;
-                box-sizing: border-box; /* Include padding in the width calculation */
+                box-sizing: border-box;
+                color: #8D5A3C; /* Terracotta for the pseudo-elements */
+                font-family: 'Open Sans', sans-serif; /* Use body font for these labels */
+                font-size: 0.9em;
             }
 
             /* Assign data labels to cells for small screens */
@@ -121,19 +199,12 @@
 
             /* Further refinement for mobile readability */
             .chinese-translation {
-                font-size: 0.7em; /* Slightly smaller font for Chinese translations on small screens */
+                font-size: 0.65em;
+                margin-top: 2px;
             }
 
             h1 .chinese-translation, h2 .chinese-translation {
-                font-size: 0.75em; /* Slightly larger for main headings */
-            }
-
-            .role-description h3 .chinese-translation {
                 font-size: 0.7em;
-            }
-
-            .role-description p .chinese-translation {
-                font-size: 0.75em;
             }
         }
     </style>
