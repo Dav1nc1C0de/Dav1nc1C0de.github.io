@@ -1,267 +1,243 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2575.6">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
-    p.p3 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Helvetica; color: #101010; -webkit-text-stroke: #101010; background-color: #ffffff}
-    p.p4 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; color: #101010; -webkit-text-stroke: #101010}
-    p.p5 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; color: #101010; -webkit-text-stroke: #101010; background-color: #ffffff}
-    span.s1 {font-kerning: none}
-    span.s2 {color: #000000; -webkit-text-stroke: 0px #000000}
-    span.s3 {font-kerning: none; background-color: #ffffff}
-    span.s4 {font: 14.0px Helvetica; font-kerning: none; color: #101010; background-color: #ffffff; -webkit-text-stroke: 0px #101010}
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Wedding Day Rundown</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .timeline-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        .filter-button.active {
+            background-color: #a7f3d0; /* bg-green-200 */
+            color: #065f46; /* text-green-800 */
+            font-weight: 600;
+        }
+         /* For better readability of long notes */
+        .notes-content {
+            max-height: 200px;
+            overflow-y: auto;
+            line-height: 1.6;
+        }
+        .timeline-line {
+            width: 2px;
+            background-color: #d6d3d1; /* border-stone-300 */
+        }
+        .timeline-dot {
+            width: 12px;
+            height: 12px;
+            background-color: #a7f3d0; /* bg-green-200 */
+            border: 2px solid #065f46; /* text-green-800 */
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
-<body>
-<p class="p1">&lt;!DOCTYPE html&gt;</p>
-<p class="p1">&lt;html lang="en"&gt;</p>
-<p class="p1">&lt;head&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;title&gt; Wedding Day Rundown&lt;/title&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;script src="https://cdn.tailwindcss.com"&gt;&lt;/script&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;style&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>body {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-family: 'Inter', sans-serif;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.timeline-item:hover {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>transform: translateY(-2px);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>box-shadow: 0 4px 12px rgba(0,0,0,0.1);</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.filter-button.active {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background-color: #a7f3d0; /* bg-green-200 */</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: #065f46; /* text-green-800 */</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-weight: 600;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">         </span>/* For better readability of long notes */</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.notes-content {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>max-height: 200px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>overflow-y: auto;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>line-height: 1.6;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.timeline-line {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>width: 2px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background-color: #d6d3d1; /* border-stone-300 */</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.timeline-dot {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>width: 12px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>height: 12px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background-color: #a7f3d0; /* bg-green-200 */</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border: 2px solid #065f46; /* text-green-800 */</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"&gt;</p>
-<p class="p1">&lt;/head&gt;</p>
-<p class="p1">&lt;body class="bg-stone-100 text-stone-700 antialiased"&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="container mx-auto p-4 sm:p-6 lg:p-8 max-w-5xl"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;header class="mb-8 text-center"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;h1 class="text-3xl sm:text-4xl font-bold text-stone-800"&gt;Interactive Wedding Day Rundown&lt;/h1&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="mt-2 text-stone-600"&gt;Welcome! View the full schedule or filter by role. Click any task to see more details.&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/header&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;section id="rolesSection" class="mb-8 p-6 bg-white rounded-lg shadow-md"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;h2 class="text-2xl font-semibold text-stone-800 mb-4"&gt;Suggested Friend Roles&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div id="rolesContainer" class="space-y-3"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/section&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;section id="filterSection" class="mb-8 p-6 bg-white rounded-lg shadow-md"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;h2 class="text-2xl font-semibold text-stone-800 mb-4"&gt;Filter by Role&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div id="roleFilters" class="flex flex-wrap gap-2"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/section&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;main id="scheduleTimeline" class="relative"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/main&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;script&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>const rolesData = [</p>
-<p class="p2"><br></p>
-<p class="p3"><span class="s1">{ role: "Point Person", description: "The main point of contact for vendors and the keeper of the master schedule. They will help oversee everything and troubleshoot any issues." },</span></p>
-<p class="p3"><span class="s1"><span class="Apple-converted-space">  </span>{ role: "Guest Greeter &amp; Guide MC/", description: "This friendly face will welcome guests, answer their questions, and make sure they feel comfortable and know where to go." },</span></p>
-<p class="p3"><span class="s1"><span class="Apple-converted-space">  </span>{ role: "Tech &amp; Ambiance Lead", description: "This person is in charge of the sound system, music cues, and overall vibe of the space." },</span></p>
-<p class="p3"><span class="s1"><span class="Apple-converted-space">  </span>{ role: "Activities Coordinator", description: "This friend will manage the fun interactive elements like the instant camera and guest book." }</span></p>
-<p class="p3"><span class="s1">];</span></p>
-<p class="p2"><br></p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>const scheduleData = [</p>
-<p class="p2"><span class="Apple-converted-space">     </span></p>
-<p class="p4"><span class="s2"><span class="Apple-converted-space">           </span></span><span class="s3">{ time: "2:45 PM", task: "Final Venue Walk-Through", assigned: "Point Person", notes: "Ensure everything is clean and ready for setup." },</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">  </span>{ time: "3:00 PM", task: "Florist Arrives", assigned: "Point Person", notes: "Meet the florist upon arrival. Show them where the ceremony arch, tables, and other decoration points are." },</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">  </span>{ time: "4:00 PM", task: "Make-up &amp; Hair Stylist Arrives", assigned: "Point Person", notes: "" },</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">  </span>{ time: "4:30 PM", task: "Photographer &amp; Videographer arrives", assigned: "Point Person", notes: "" },</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">  </span>{ time: "4:30 PM", task: "Ceremony area &amp; audio equipment", assigned: "Tech &amp; Ambiance Lead", notes: "Set up speakers &amp; microphones. Check aesthetics: florist set up, chairs, walkway" },</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">  </span>{ time: "5:00 PM", task: "Gelato Cart Arrives", assigned: "Point Person", notes: "Greet the gelato cart vendor. Guide them to their designated setup location and confirm their service start time." },</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">  </span>{ time: "5:00 PM", task: "Appetizer &amp; Drink Stations", assigned: "Guest Greeter &amp; Guide Support chef team for apperitivo arrangement.", notes: "Ensure everything is beautifully presented, and plates, napkins, and glasses are stocked." },</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">  </span>{ time: "5:00 PM", task: "Set Up Instant Camera Station", assigned: "Activities Coordinator", notes: "Designate a spot for the instant camera. Lay out the camera, extra film, batteries, any props, and a guest book for guests to place their photos in." },</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">  </span>{ time: "5:00 PM", task: "First Look and Family Photos", assigned: "Activities Coordinator", notes: "Bring all family in for first look &amp; group photos" },</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">  </span>{ time: "5:30 PM", task: "Final Ambiance Check", assigned: "Tech &amp; Ambiance Lead", notes: "Start pre-ceremony background music at a low, pleasant volume. Do a final check of the microphone levels." },</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">  </span>{ time: "5:45 PM", task: "All Helpers: Final Briefing", assigned: "Point Person", notes: "Huddle with the friend group to do a quick 5-minute rundown of the upcoming events (guest arrival, ceremony start) to ensure everyone is on the same page." },</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">  </span>{ time: "5:45 PM", task: "Final Ambiance Check", assigned: "Tech &amp; Ambiance Lead", notes: "Start pre-ceremony background music at a low, pleasant volume. Do a final check of the microphone levels." },</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">  </span>{ time: "6:00 PM", task: "GUESTS BEGIN TO ARRIVE", assigned: "", notes: "" },</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">  </span>{ time: "6:00 PM", task: "Welcome &amp; Direct Guests", assigned: "Guest Greeter &amp; Guide", notes: "Warmly welcome guests. Direct them to the appetizer and drink stations, restrooms, and encourage them to mingle." },</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">  </span>{ time: "6:00 PM", task: "Encourage Camera Fun", assigned: "Activities Coordinator", notes: "Mingle with guests and encourage them to use the instant camera. Offer to take pictures for them. Refill camera paper" },</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">  </span>{ time: "6:50 PM", task: "First Call for Ceremony", assigned: "Guest Greeter &amp; Guide", notes: "Make a friendly announcement encouraging guests to begin finding their seats for the ceremony." },</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">  </span>{ time: "6:55 PM", task: "Final Call &amp; Line Up", assigned: "Point Person", notes: "Ensure the wedding party is lined up and ready for the processional. Give the Tech Lead the cue that you are ready." },</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">  </span>{ time: "7:00 PM", task: "CEREMONY BEGINS", assigned: "", notes: "" },</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">  </span>{ time: "7:00 PM", task: "Play Processional Music", assigned: "Tech &amp; Ambiance Lead", notes: "Start the ceremony music as the processional begins. Monitor sound levels throughout the ceremony." },</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">  </span>{ time: "7:30 PM", task: "Play Recessional Music", assigned: "Tech &amp; Ambiance Lead", notes: "Play the joyful recessional music as the ceremony concludes. Transition to more upbeat post-ceremony music." },</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">  </span>{ time: "7:30 PM", task: "Direct Guests to Cocktail Hour", assigned: "Guest Greeter &amp; Guide", notes: "Guide guests towards the reception area. Announce that dinner will begin at 8:00 PM" },</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">  </span>{ time: "7:30 PM", task: "Group Photos, Encourage Camera Fun", assigned: "Activities Coordinator", notes: "Continue encouraging guests to use the camera. Assist photographer and guests for taking group photos" },</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">  </span>{ time: "7:30 PM", task: "Dinner Table Set Up", assigned: "Point Person", notes: "Place name cards &amp; gifts on the plates. Check overall aesthetics. Coordinate with chef to confirm start time" },</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">  </span>{ time: "7:45 PM", task: "Audio Set Up for Dinner", assigned: "Tech &amp; Ambiance Lead", notes: "Move the speakers to the dinner area, continue music" },</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">  </span>{ time: "8:00 PM", task: "DINNER BEGINS", assigned: "", notes: "" },</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">  </span>{ time: "8:00 PM", task: "Dinner Announcement", assigned: "Guest Greeter &amp; Guide", notes: "Make a clear announcement that dinner is being served and guide guests on how to proceed (e.g., finding their seats, heading to the buffet)." },</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">  </span>{ time: "8:30 PM", task: "Coordinate for Wedding Cake", assigned: "Point Person", notes: "Check in with the dinner caterer to confirm time for wedding cake" },</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">  </span>{ time: "8:45 PM", task: "Wedding Cake Cutting", assigned: "Point Person", notes: "Assist if needed" },</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">  </span>{ time: "8:45 PM", task: "Audio Set Up for Fun Event", assigned: "Tech &amp; Ambiance Lead", notes: "Final check of microphone" },</span></p>
-<p class="p4"><span class="s3"><span class="Apple-converted-space">  </span>{ time: "9:00 PM", task: "Fun Event - Karaoke", assigned: "Tech &amp; Ambiance Lead", notes: "Assist if needed" }</span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>// Add full schedule from context here</p>
-<p class="p1"><span class="Apple-converted-space">        </span>];</p>
-<p class="p2"><span class="Apple-converted-space">        </span></p>
-<p class="p1"><span class="Apple-converted-space">        </span>// This mapping helps connect "Friend D" to "Activities &amp; Details Pro"</p>
-<p class="p1"><span class="Apple-converted-space">        </span>const roleMappings = {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>"Lead Coordinator": "Lead Coordinator (Friend A)",</p>
-<p class="p1"><span class="Apple-converted-space">            </span>"Guest Experience Lead": "Guest Experience Lead (Friend B)",</p>
-<p class="p1"><span class="Apple-converted-space">            </span>"Tech &amp; Ambiance Guru": "Tech &amp; Ambiance Guru (Friend C)",</p>
-<p class="p1"><span class="Apple-converted-space">            </span>"Activities &amp; Details Pro": "Activities &amp; Details Pro (Friend D)",</p>
-<p class="p1"><span class="Apple-converted-space">            </span>"Friend D": "Activities &amp; Details Pro (Friend D)" // For "Guest Experience Lead &amp; Friend D"</p>
-<p class="p1"><span class="Apple-converted-space">        </span>};</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>const rolesForFiltering = ["All", "Lead Coordinator", "Guest Experience Lead", "Tech &amp; Ambiance Guru", "Activities &amp; Details Pro", "Wedding Party / Stylists"];</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>function populateRolesDescription() {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>const container = document.getElementById('rolesContainer');</p>
-<p class="p1"><span class="Apple-converted-space">            </span>container.innerHTML = rolesData.map(r =&gt; `</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="p-3 bg-stone-50 rounded-md border border-stone-200"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h3 class="font-semibold text-stone-700"&gt;${r.role}&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p class="text-sm text-stone-600"&gt;${r.description}&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>`).join('');</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><span class="Apple-converted-space">        </span></p>
-<p class="p1"><span class="Apple-converted-space">        </span>function populateRoleFilters() {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>const filtersContainer = document.getElementById('roleFilters');</p>
-<p class="p1"><span class="Apple-converted-space">            </span>rolesForFiltering.forEach(role =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>const button = document.createElement('button');</p>
-<p class="p1"><span class="Apple-converted-space">                </span>button.textContent = role;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>button.classList.add('filter-button', 'px-4', 'py-2', 'rounded-md', 'border', 'border-stone-300', 'hover:bg-green-100', 'hover:text-green-700', 'transition-colors', 'duration-150', 'ease-in-out', 'text-sm', 'font-medium');</p>
-<p class="p1"><span class="Apple-converted-space">                </span>if (role === 'All') {</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>button.classList.add('active');</p>
-<p class="p1"><span class="Apple-converted-space">                </span>}</p>
-<p class="p1"><span class="Apple-converted-space">                </span>button.addEventListener('click', () =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>document.querySelectorAll('.filter-button').forEach(btn =&gt; btn.classList.remove('active'));</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>button.classList.add('active');</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>renderSchedule(role);</p>
-<p class="p1"><span class="Apple-converted-space">                </span>});</p>
-<p class="p1"><span class="Apple-converted-space">                </span>filtersContainer.appendChild(button);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>});</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>function renderSchedule(filterRole = 'All') {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>const timelineContainer = document.getElementById('scheduleTimeline');</p>
-<p class="p1"><span class="Apple-converted-space">            </span>timelineContainer.innerHTML = '';<span class="Apple-converted-space"> </span></p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>const filteredData = scheduleData.filter(item =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>if (filterRole === 'All') return true;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>if (item.assigned === filterRole) return true;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>if (filterRole === "<span class="s4">Point Person</span>" &amp;&amp; item.assigned.includes("<span class="s4">Point Person</span>")) return true;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>if (filterRole === "<span class="s4">Guest Greeter &amp; Guide</span>" &amp;&amp; item.assigned.includes("<span class="s4">Guest Greeter &amp; Guide</span>")) return true;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>if (filterRole === "<span class="s4">Tech &amp; Ambiance Lead</span>" &amp;&amp; item.assigned.includes("<span class="s4">Tech &amp; Ambiance Lead</span>")) return true;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>if (filterRole === "<span class="s4">Activities Coordinator</span>" &amp;&amp; (item.assigned.includes("<span class="s4">Activities Coordinator</span>") || item.assigned.includes("Friend D"))) return true;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>return false;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>});</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>if (filteredData.length === 0) {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>timelineContainer.innerHTML = `&lt;p class="text-center text-stone-500 py-4"&gt;No tasks found for this role.&lt;/p&gt;`;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>return;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>}</p>
-<p class="p2"><span class="Apple-converted-space">            </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>// Create the main timeline line</p>
-<p class="p1"><span class="Apple-converted-space">            </span>const lineDiv = document.createElement('div');</p>
-<p class="p1"><span class="Apple-converted-space">            </span>lineDiv.className = 'timeline-line absolute top-0 bottom-0 left-4 sm:left-1/2 transform sm:-translate-x-1/2';</p>
-<p class="p1"><span class="Apple-converted-space">            </span>timelineContainer.appendChild(lineDiv);</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>filteredData.forEach((item, index) =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>const itemDiv = document.createElement('div');</p>
-<p class="p1"><span class="Apple-converted-space">                </span>itemDiv.classList.add('timeline-item', 'mb-8', 'p-5', 'sm:p-6', 'bg-white', 'rounded-lg', 'shadow-lg', 'cursor-pointer', 'transition-all', 'duration-200', 'ease-in-out', 'relative');</p>
-<p class="p1"><span class="Apple-converted-space">                </span>itemDiv.setAttribute('role', 'button');</p>
-<p class="p1"><span class="Apple-converted-space">                </span>itemDiv.setAttribute('tabindex', '0');</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">                </span>// Dot on the timeline</p>
-<p class="p1"><span class="Apple-converted-space">                </span>const dotDiv = document.createElement('div');</p>
-<p class="p1"><span class="Apple-converted-space">                </span>dotDiv.className = 'timeline-dot rounded-full absolute top-7 -left-[2px] sm:left-1/2 sm:-translate-x-1/2 sm:-translate-y-1/2 ring-4 ring-stone-100';</p>
-<p class="p1"><span class="Apple-converted-space">                 </span>// For left aligned mobile view, adjust dot position if not first item</p>
-<p class="p1"><span class="Apple-converted-space">                </span>if (index &gt; 0 &amp;&amp; window.innerWidth &lt; 640) { // sm breakpoint</p>
-<p class="p1"><span class="Apple-converted-space">                   </span>dotDiv.style.top = '28px'; // align with text</p>
-<p class="p1"><span class="Apple-converted-space">                </span>} else if (window.innerWidth &lt; 640) {</p>
-<p class="p1"><span class="Apple-converted-space">                   </span>dotDiv.style.top = '28px';</p>
-<p class="p1"><span class="Apple-converted-space">                </span>}</p>
-<p class="p2"><br></p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">                </span>const contentWrapper = document.createElement('div');</p>
-<p class="p1"><span class="Apple-converted-space">                </span>// On small screens, content is to the right of the line. On sm+, it alternates.</p>
-<p class="p1"><span class="Apple-converted-space">                </span>// For simplicity here, let's make it consistently offset or centered.</p>
-<p class="p1"><span class="Apple-converted-space">                </span>// Using ml-8 for small screens to push content right of the line+dot</p>
-<p class="p1"><span class="Apple-converted-space">                </span>contentWrapper.className = 'ml-8 sm:ml-0';</p>
-<p class="p2"><br></p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">                </span>const timeEl = document.createElement('p');</p>
-<p class="p1"><span class="Apple-converted-space">                </span>timeEl.textContent = item.time;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>timeEl.classList.add('text-sm', 'font-semibold', 'text-green-700', 'mb-1');</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">                </span>const taskEl = document.createElement('h3');</p>
-<p class="p1"><span class="Apple-converted-space">                </span>taskEl.textContent = item.task;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>taskEl.classList.add('text-lg', 'sm:text-xl', 'font-semibold', 'text-stone-800', 'mb-2');</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">                </span>const assignedEl = document.createElement('p');</p>
-<p class="p1"><span class="Apple-converted-space">                </span>assignedEl.innerHTML = `&lt;strong class="font-medium text-stone-600"&gt;Assigned to:&lt;/strong&gt; ${item.assigned}`;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>assignedEl.classList.add('text-xs', 'sm:text-sm', 'text-stone-500', 'mb-3');</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">                </span>const notesDiv = document.createElement('div');</p>
-<p class="p1"><span class="Apple-converted-space">                </span>notesDiv.classList.add('notes-content', 'text-sm', 'text-stone-600', 'mt-3', 'pt-3', 'border-t', 'border-stone-200', 'hidden');</p>
-<p class="p1"><span class="Apple-converted-space">                </span>notesDiv.innerHTML = `&lt;p&gt;${item.notes.replace(/\n/g, '&lt;br&gt;')}&lt;/p&gt;`;</p>
-<p class="p2"><span class="Apple-converted-space">                </span></p>
-<p class="p1"><span class="Apple-converted-space">                </span>itemDiv.addEventListener('click', () =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>notesDiv.classList.toggle('hidden');</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>itemDiv.classList.toggle('shadow-xl');</p>
-<p class="p1"><span class="Apple-converted-space">                </span>});</p>
-<p class="p1"><span class="Apple-converted-space">                </span>itemDiv.addEventListener('keydown', (e) =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>if (e.key === 'Enter' || e.key === ' ') {</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>e.preventDefault();</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>notesDiv.classList.toggle('hidden');</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>itemDiv.classList.toggle('shadow-xl');</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">                </span>});</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">                </span>contentWrapper.appendChild(timeEl);</p>
-<p class="p1"><span class="Apple-converted-space">                </span>contentWrapper.appendChild(taskEl);</p>
-<p class="p1"><span class="Apple-converted-space">                </span>contentWrapper.appendChild(assignedEl);</p>
-<p class="p1"><span class="Apple-converted-space">                </span>contentWrapper.appendChild(notesDiv);</p>
-<p class="p2"><span class="Apple-converted-space">                </span></p>
-<p class="p1"><span class="Apple-converted-space">                </span>itemDiv.appendChild(dotDiv);</p>
-<p class="p1"><span class="Apple-converted-space">                </span>itemDiv.appendChild(contentWrapper);</p>
-<p class="p1"><span class="Apple-converted-space">                </span>timelineContainer.appendChild(itemDiv);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>});</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><span class="Apple-converted-space">        </span></p>
-<p class="p1"><span class="Apple-converted-space">        </span>function init() {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>populateRolesDescription();</p>
-<p class="p1"><span class="Apple-converted-space">            </span>populateRoleFilters();</p>
-<p class="p1"><span class="Apple-converted-space">            </span>renderSchedule(); // Initial render with "All"</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>document.addEventListener('DOMContentLoaded', init);</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/script&gt;</p>
-<p class="p1">&lt;/body&gt;</p>
-<p class="p1">&lt;/html&gt;</p>
+<body class="bg-stone-100 text-stone-700 antialiased">
+
+    <div class="container mx-auto p-4 sm:p-6 lg:p-8 max-w-5xl">
+        <header class="mb-8 text-center">
+            <h1 class="text-3xl sm:text-4xl font-bold text-stone-800">Interactive Wedding Day Rundown</h1>
+            <p class="mt-2 text-stone-600">Welcome! View the full schedule or filter by role. Click any task to see more details.</p>
+        </header>
+
+        <section id="rolesSection" class="mb-8 p-6 bg-white rounded-lg shadow-md">
+            <h2 class="text-2xl font-semibold text-stone-800 mb-4">Suggested Friend Roles</h2>
+            <div id="rolesContainer" class="space-y-3">
+                </div>
+        </section>
+
+        <section id="filterSection" class="mb-8 p-6 bg-white rounded-lg shadow-md">
+            <h2 class="text-2xl font-semibold text-stone-800 mb-4">Filter by Role</h2>
+            <div id="roleFilters" class="flex flex-wrap gap-2">
+                </div>
+        </section>
+
+        <main id="scheduleTimeline" class="relative">
+            </main>
+    </div>
+
+    <script>
+        const rolesData = [ 
+{ role: "Point Person", description: "The main point of contact for vendors and the keeper of the master schedule. They will help oversee everything and troubleshoot any issues." },
+  { role: "Guest Greeter & Guide MC/", description: "This friendly face will welcome guests, answer their questions, and make sure they feel comfortable and know where to go." },
+  { role: "Tech & Ambiance Lead", description: "This person is in charge of the sound system, music cues, and overall vibe of the space." },
+  { role: "Activities Coordinator", description: "This friend will manage the fun interactive elements like the instant camera and guest book." }
+];
+        const scheduleData = [
+     
+           { time: "2:45 PM", task: "Final Venue Walk-Through", assigned: "Point Person", notes: "Ensure everything is clean and ready for setup." },
+  { time: "3:00 PM", task: "Florist Arrives", assigned: "Point Person", notes: "Meet the florist upon arrival. Show them where the ceremony arch, tables, and other decoration points are." },
+  { time: "4:00 PM", task: "Make-up & Hair Stylist Arrives", assigned: "Point Person", notes: "" },
+  { time: "4:30 PM", task: "Photographer & Videographer arrives", assigned: "Point Person", notes: "" },
+  { time: "4:30 PM", task: "Ceremony area & audio equipment", assigned: "Tech & Ambiance Lead", notes: "Set up speakers & microphones. Check aesthetics: florist set up, chairs, walkway" },
+  { time: "5:00 PM", task: "Gelato Cart Arrives", assigned: "Point Person", notes: "Greet the gelato cart vendor. Guide them to their designated setup location and confirm their service start time." },
+  { time: "5:00 PM", task: "Appetizer & Drink Stations", assigned: "Guest Greeter & Guide Support chef team for apperitivo arrangement.", notes: "Ensure everything is beautifully presented, and plates, napkins, and glasses are stocked." },
+  { time: "5:00 PM", task: "Set Up Instant Camera Station", assigned: "Activities Coordinator", notes: "Designate a spot for the instant camera. Lay out the camera, extra film, batteries, any props, and a guest book for guests to place their photos in." },
+  { time: "5:00 PM", task: "First Look and Family Photos", assigned: "Activities Coordinator", notes: "Bring all family in for first look & group photos" },
+  { time: "5:30 PM", task: "Final Ambiance Check", assigned: "Tech & Ambiance Lead", notes: "Start pre-ceremony background music at a low, pleasant volume. Do a final check of the microphone levels." },
+  { time: "5:45 PM", task: "All Helpers: Final Briefing", assigned: "Point Person", notes: "Huddle with the friend group to do a quick 5-minute rundown of the upcoming events (guest arrival, ceremony start) to ensure everyone is on the same page." },
+  { time: "5:45 PM", task: "Final Ambiance Check", assigned: "Tech & Ambiance Lead", notes: "Start pre-ceremony background music at a low, pleasant volume. Do a final check of the microphone levels." },
+  { time: "6:00 PM", task: "GUESTS BEGIN TO ARRIVE", assigned: "", notes: "" },
+  { time: "6:00 PM", task: "Welcome & Direct Guests", assigned: "Guest Greeter & Guide", notes: "Warmly welcome guests. Direct them to the appetizer and drink stations, restrooms, and encourage them to mingle." },
+  { time: "6:00 PM", task: "Encourage Camera Fun", assigned: "Activities Coordinator", notes: "Mingle with guests and encourage them to use the instant camera. Offer to take pictures for them. Refill camera paper" },
+  { time: "6:50 PM", task: "First Call for Ceremony", assigned: "Guest Greeter & Guide", notes: "Make a friendly announcement encouraging guests to begin finding their seats for the ceremony." },
+  { time: "6:55 PM", task: "Final Call & Line Up", assigned: "Point Person", notes: "Ensure the wedding party is lined up and ready for the processional. Give the Tech Lead the cue that you are ready." },
+  { time: "7:00 PM", task: "CEREMONY BEGINS", assigned: "", notes: "" },
+  { time: "7:00 PM", task: "Play Processional Music", assigned: "Tech & Ambiance Lead", notes: "Start the ceremony music as the processional begins. Monitor sound levels throughout the ceremony." },
+  { time: "7:30 PM", task: "Play Recessional Music", assigned: "Tech & Ambiance Lead", notes: "Play the joyful recessional music as the ceremony concludes. Transition to more upbeat post-ceremony music." },
+  { time: "7:30 PM", task: "Direct Guests to Cocktail Hour", assigned: "Guest Greeter & Guide", notes: "Guide guests towards the reception area. Announce that dinner will begin at 8:00 PM" },
+  { time: "7:30 PM", task: "Group Photos, Encourage Camera Fun", assigned: "Activities Coordinator", notes: "Continue encouraging guests to use the camera. Assist photographer and guests for taking group photos" },
+  { time: "7:30 PM", task: "Dinner Table Set Up", assigned: "Point Person", notes: "Place name cards & gifts on the plates. Check overall aesthetics. Coordinate with chef to confirm start time" },
+  { time: "7:45 PM", task: "Audio Set Up for Dinner", assigned: "Tech & Ambiance Lead", notes: "Move the speakers to the dinner area, continue music" },
+  { time: "8:00 PM", task: "DINNER BEGINS", assigned: "", notes: "" },
+  { time: "8:00 PM", task: "Dinner Announcement", assigned: "Guest Greeter & Guide", notes: "Make a clear announcement that dinner is being served and guide guests on how to proceed (e.g., finding their seats, heading to the buffet)." },
+  { time: "8:30 PM", task: "Coordinate for Wedding Cake", assigned: "Point Person", notes: "Check in with the dinner caterer to confirm time for wedding cake" },
+  { time: "8:45 PM", task: "Wedding Cake Cutting", assigned: "Point Person", notes: "Assist if needed" },
+  { time: "8:45 PM", task: "Audio Set Up for Fun Event", assigned: "Tech & Ambiance Lead", notes: "Final check of microphone" },
+  { time: "9:00 PM", task: "Fun Event - Karaoke", assigned: "Tech & Ambiance Lead", notes: "Assist if needed" }
+            // Add full schedule from context here
+        ];
+        
+        // This mapping helps connect "Friend D" to "Activities & Details Pro"
+        const roleMappings = {
+            "Lead Coordinator": "Lead Coordinator (Friend A)",
+            "Guest Experience Lead": "Guest Experience Lead (Friend B)",
+            "Tech & Ambiance Guru": "Tech & Ambiance Guru (Friend C)",
+            "Activities & Details Pro": "Activities & Details Pro (Friend D)",
+            "Friend D": "Activities & Details Pro (Friend D)" // For "Guest Experience Lead & Friend D"
+        };
+
+        const rolesForFiltering = ["All", "Lead Coordinator", "Guest Experience Lead", "Tech & Ambiance Guru", "Activities & Details Pro", "Wedding Party / Stylists"];
+
+        function populateRolesDescription() {
+            const container = document.getElementById('rolesContainer');
+            container.innerHTML = rolesData.map(r => `
+                <div class="p-3 bg-stone-50 rounded-md border border-stone-200">
+                    <h3 class="font-semibold text-stone-700">${r.role}</h3>
+                    <p class="text-sm text-stone-600">${r.description}</p>
+                </div>
+            `).join('');
+        }
+        
+        function populateRoleFilters() {
+            const filtersContainer = document.getElementById('roleFilters');
+            rolesForFiltering.forEach(role => {
+                const button = document.createElement('button');
+                button.textContent = role;
+                button.classList.add('filter-button', 'px-4', 'py-2', 'rounded-md', 'border', 'border-stone-300', 'hover:bg-green-100', 'hover:text-green-700', 'transition-colors', 'duration-150', 'ease-in-out', 'text-sm', 'font-medium');
+                if (role === 'All') {
+                    button.classList.add('active');
+                }
+                button.addEventListener('click', () => {
+                    document.querySelectorAll('.filter-button').forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+                    renderSchedule(role);
+                });
+                filtersContainer.appendChild(button);
+            });
+        }
+
+        function renderSchedule(filterRole = 'All') {
+            const timelineContainer = document.getElementById('scheduleTimeline');
+            timelineContainer.innerHTML = ''; 
+
+            const filteredData = scheduleData.filter(item => {
+                if (filterRole === 'All') return true;
+                if (item.assigned === filterRole) return true;
+                if (filterRole === "Point Person" && item.assigned.includes("Point Person")) return true;
+                if (filterRole === "Guest Greeter & Guide" && item.assigned.includes("Guest Greeter & Guide")) return true;
+                if (filterRole === "Tech & Ambiance Lead" && item.assigned.includes("Tech & Ambiance Lead")) return true;
+                if (filterRole === "Activities Coordinator" && (item.assigned.includes("Activities Coordinator") || item.assigned.includes("Friend D"))) return true;
+                return false;
+            });
+
+            if (filteredData.length === 0) {
+                timelineContainer.innerHTML = `<p class="text-center text-stone-500 py-4">No tasks found for this role.</p>`;
+                return;
+            }
+            
+            // Create the main timeline line
+            const lineDiv = document.createElement('div');
+            lineDiv.className = 'timeline-line absolute top-0 bottom-0 left-4 sm:left-1/2 transform sm:-translate-x-1/2';
+            timelineContainer.appendChild(lineDiv);
+
+            filteredData.forEach((item, index) => {
+                const itemDiv = document.createElement('div');
+                itemDiv.classList.add('timeline-item', 'mb-8', 'p-5', 'sm:p-6', 'bg-white', 'rounded-lg', 'shadow-lg', 'cursor-pointer', 'transition-all', 'duration-200', 'ease-in-out', 'relative');
+                itemDiv.setAttribute('role', 'button');
+                itemDiv.setAttribute('tabindex', '0');
+
+                // Dot on the timeline
+                const dotDiv = document.createElement('div');
+                dotDiv.className = 'timeline-dot rounded-full absolute top-7 -left-[2px] sm:left-1/2 sm:-translate-x-1/2 sm:-translate-y-1/2 ring-4 ring-stone-100';
+                 // For left aligned mobile view, adjust dot position if not first item
+                if (index > 0 && window.innerWidth < 640) { // sm breakpoint
+                   dotDiv.style.top = '28px'; // align with text
+                } else if (window.innerWidth < 640) {
+                   dotDiv.style.top = '28px';
+                }
+
+
+                const contentWrapper = document.createElement('div');
+                // On small screens, content is to the right of the line. On sm+, it alternates.
+                // For simplicity here, let's make it consistently offset or centered.
+                // Using ml-8 for small screens to push content right of the line+dot
+                contentWrapper.className = 'ml-8 sm:ml-0';
+
+
+                const timeEl = document.createElement('p');
+                timeEl.textContent = item.time;
+                timeEl.classList.add('text-sm', 'font-semibold', 'text-green-700', 'mb-1');
+
+                const taskEl = document.createElement('h3');
+                taskEl.textContent = item.task;
+                taskEl.classList.add('text-lg', 'sm:text-xl', 'font-semibold', 'text-stone-800', 'mb-2');
+
+                const assignedEl = document.createElement('p');
+                assignedEl.innerHTML = `<strong class="font-medium text-stone-600">Assigned to:</strong> ${item.assigned}`;
+                assignedEl.classList.add('text-xs', 'sm:text-sm', 'text-stone-500', 'mb-3');
+
+                const notesDiv = document.createElement('div');
+                notesDiv.classList.add('notes-content', 'text-sm', 'text-stone-600', 'mt-3', 'pt-3', 'border-t', 'border-stone-200', 'hidden');
+                notesDiv.innerHTML = `<p>${item.notes.replace(/\n/g, '<br>')}</p>`;
+                
+                itemDiv.addEventListener('click', () => {
+                    notesDiv.classList.toggle('hidden');
+                    itemDiv.classList.toggle('shadow-xl');
+                });
+                itemDiv.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        notesDiv.classList.toggle('hidden');
+                        itemDiv.classList.toggle('shadow-xl');
+                    }
+                });
+
+                contentWrapper.appendChild(timeEl);
+                contentWrapper.appendChild(taskEl);
+                contentWrapper.appendChild(assignedEl);
+                contentWrapper.appendChild(notesDiv);
+                
+                itemDiv.appendChild(dotDiv);
+                itemDiv.appendChild(contentWrapper);
+                timelineContainer.appendChild(itemDiv);
+            });
+        }
+        
+        function init() {
+            populateRolesDescription();
+            populateRoleFilters();
+            renderSchedule(); // Initial render with "All"
+        }
+
+        document.addEventListener('DOMContentLoaded', init);
+
+    </script>
 </body>
 </html>
+
