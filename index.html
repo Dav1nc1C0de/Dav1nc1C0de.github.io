@@ -34,10 +34,9 @@
             margin-top: 10px;
         }
 
-        /* New style for the filter container */
         .filter-container {
             margin-bottom: 15px;
-            text-align: right; /* Align filter to the right on larger screens */
+            text-align: right;
         }
 
         .filter-container select {
@@ -46,7 +45,6 @@
             border-radius: 4px;
             font-size: 1em;
         }
-
 
         .chinese-translation {
             display: block;
@@ -60,14 +58,13 @@
                 margin: 10px;
             }
 
-            /* Adjust filter container for small screens */
             .filter-container {
-                text-align: left; /* Align filter to the left on smaller screens */
+                text-align: left;
             }
 
             .filter-container select {
-                width: 100%; /* Make filter full width */
-                box-sizing: border-box; /* Include padding and border in the element's total width and height */
+                width: 100%;
+                box-sizing: border-box;
             }
 
             table, thead, tbody, th, td, tr {
@@ -89,19 +86,27 @@
                 border: none;
                 border-bottom: 1px solid #e4e7eb;
                 position: relative;
-                padding-left: 50%;
+                padding-left: 50%; /* Adjust this percentage if needed */
                 text-align: right;
+                /* Add these properties to prevent text overlap */
+                word-wrap: break-word; /* Breaks long words */
+                overflow-wrap: break-word; /* Modern equivalent */
+            }
+
+            td:last-child {
+                border-bottom: 0; /* Remove bottom border for the last cell in a row */
             }
 
             td:before {
                 position: absolute;
                 top: 6px;
                 left: 6px;
-                width: 45%;
+                width: 45%; /* Adjust this percentage, ensure it's less than padding-left */
                 padding-right: 10px;
-                white-space: nowrap;
+                white-space: normal; /* Allow text to wrap */
                 text-align: left;
                 font-weight: bold;
+                box-sizing: border-box; /* Include padding in the width calculation */
             }
 
             /* Assign data labels to cells for small screens */
@@ -110,9 +115,25 @@
             td:nth-of-type(3):before { content: "Primary Person Assigned 主要負責人"; }
             td:nth-of-type(4):before { content: "Notes & Details 備註 & 詳細資訊"; }
 
-            /* Hide the filter within the table header for small screens */
             th select {
                 display: none;
+            }
+
+            /* Further refinement for mobile readability */
+            .chinese-translation {
+                font-size: 0.7em; /* Slightly smaller font for Chinese translations on small screens */
+            }
+
+            h1 .chinese-translation, h2 .chinese-translation {
+                font-size: 0.75em; /* Slightly larger for main headings */
+            }
+
+            .role-description h3 .chinese-translation {
+                font-size: 0.7em;
+            }
+
+            .role-description p .chinese-translation {
+                font-size: 0.75em;
             }
         }
     </style>
@@ -123,14 +144,12 @@
             var table = document.querySelector("table");
             var tr = table.getElementsByTagName("tr");
 
-            for (i = 0; i < tr.length; i++) { // Start from index 0 to include all rows, then skip the header
-                // If it's a header row, we might want to skip it or handle it differently for display purposes
-                // For this filter, we only care about the data rows (tbody)
+            for (i = 0; i < tr.length; i++) {
                 if (tr[i].parentNode.tagName === 'TBODY') {
                     var primaryPersonCell = tr[i].getElementsByTagName("td")[2];
                     if (primaryPersonCell) {
                         var primaryPerson = primaryPersonCell.textContent.toLowerCase();
-                        tr[i].style.display = ""; // Reset display
+                        tr[i].style.display = "";
 
                         if (primaryPersonFilter && !primaryPerson.includes(primaryPersonFilter)) {
                             tr[i].style.display = "none";
