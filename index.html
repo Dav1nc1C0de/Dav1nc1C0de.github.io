@@ -1,283 +1,367 @@
 <!DOCTYPE html>
- <html lang="en">
- <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Event Day Schedule & Tasks</title>
-  <style>
-  body {
-  font-family: sans-serif;
-  margin: 20px;
-  }
-  h1, h2 {
-  text-align: center;
-  }
-  table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 20px;
-  }
-  th, td {
-  border: 1px solid #e4e7eb;
-  padding: 8px;
-  text-align: left;
-  }
-  th {
-  background-color: #b3c1e6;
-  }
-  .role-description {
-  margin-top: 10px;
-  }
-  .filter-row {
-  display: flex;
-  justify-content: space-around;
-  margin-bottom: 10px;
-  }
-  .filter-row select {
-  width: 100%; /* Adjust as needed */
-  padding: 5px;
-  }
-  .chinese-translation {
-  display: block;
-  font-size: 0.8em;
-  color: #777;
-  }
-  </style>
-  <script>
-  function filterTable() {
-  var primaryPersonFilter = document.getElementById("primaryPersonFilter").value.toLowerCase();
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Day Schedule & Tasks</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 20px;
+        }
 
-  var table = document.querySelector("table");
-  var tr = table.getElementsByTagName("tr");
+        h1, h2 {
+            text-align: center;
+        }
 
-  for (i = 1; i < tr.length; i++) {
-  var primaryPerson = tr[i].getElementsByTagName("td")[2].textContent.toLowerCase();
-  tr[i].style.display = ""; // Reset display
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
 
-  if (primaryPersonFilter && !primaryPerson.includes(primaryPersonFilter)) {
-  tr[i].style.display = "none";
-  }
-  }
-  }
-  </script>
- </head>
- <body>
-  <h1>Event Day Schedule <span class="chinese-translation">日程表</span></h1>
+        th, td {
+            border: 1px solid #e4e7eb;
+            padding: 8px;
+            text-align: left;
+        }
 
-  <h2>Roles and Responsibilities <span class="chinese-translation">角色與職責</span></h2>
-  <div class="role-description">
-  <h3>Point Person <span class="chinese-translation">聯絡人</span></h3>
-  <p>The main point of contact for vendors and the keeper of the master schedule. They will help oversee everything and troubleshoot any issues. <span class="chinese-translation">廠商的主要聯絡人以及總行程的負責人。他們將協助監督所有事項並排除任何問題。</span></p>
-  <h3>Guest Greeter & Guide <span class="chinese-translation">訪客接待員 & 引導</span></h3>
-  <p>This friendly face will welcome guests, answer their questions, and make sure they feel comfortable and know where to go. <span class="chinese-translation">這位友善的人將歡迎訪客，回答他們的問題，並確保他們感到舒適並知道該去哪裡。</span></p>
-  <h3>Tech & Ambiance Lead <span class="chinese-translation">技術 & 氛圍負責人</span></h3>
-  <p>This person is in charge of the sound system, music cues, and overall vibe of the space. <span class="chinese-translation">此人負責音響系統、音樂提示和空間的整體氛圍。</span></p>
-  <h3>Activities Coordinator <span class="chinese-translation">活動協調員</span></h3>
-  <p>This friend will manage the fun interactive elements like the instant camera and guest book. <span class="chinese-translation">這位朋友將管理有趣的互動元素，例如即可拍相機和留言簿。</span></p>
-  </div>
+        th {
+            background-color: #b3c1e6;
+        }
 
-  <h2>Schedule <span class="chinese-translation">行程表</span></h2>
+        .role-description {
+            margin-top: 10px;
+        }
 
-  <table>
-  <thead>
-  <tr>
-  <th>Time <span class="chinese-translation">時間</span></th>
-  <th>Task <span class="chinese-translation">任務</span></th>
-  <th>
-  Primary Person Assigned <span class="chinese-translation">主要負責人</span>
-  <select id="primaryPersonFilter" onchange="filterTable()">
-  <option value="">All Roles <span class="chinese-translation">所有角色</span></option>
-  <option value="point person">Point Person <span class="chinese-translation">聯絡人</span></option>
-  <option value="guest greeter & guide">Guest Greeter & Guide <span class="chinese-translation">訪客接待員 & 引導</span></option>
-  <option value="tech & ambiance lead">Tech & Ambiance Lead <span class="chinese-translation">技術 & 氛圍負責人</span></option>
-  <option value="activities coordinator">Activities Coordinator <span class="chinese-translation">活動協調員</span></option>
-  </select>
-  </th>
-  <th>Notes & Details <span class="chinese-translation">備註 & 詳細資訊</span></th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-  <td>2:45 pm</td>
-  <td>Final Venue Check <span class="chinese-translation">最後場地檢查</span></td>
-  <td>Point Person <span class="chinese-translation">聯絡人</span></td>
-  <td>Ensure everything is clean and ready for setup. <span class="chinese-translation">確保一切乾淨。</span></td>
-  </tr>
-  <tr>
-  <td>3:00 pm</td>
-  <td>Florist Arrives <span class="chinese-translation">花藝師到達</span></td>
-  <td>Point Person <span class="chinese-translation">聯絡人</span></td>
-  <td>Meet the florist upon arrival. Show them where the ceremony arch, tables, and other decoration points are. <span class="chinese-translation">花藝師到達時與之會面。向他們展示儀式拱門、桌子和其他裝飾點的位置。</span></td>
-  </tr>
-  <tr>
-  <td>4:00 pm</td>
-  <td>Make-up & Hair Stylist Arrives <span class="chinese-translation">化妝 & 髮型設計師到達</span></td>
-  <td>Paint Person</td>
-  <td>Meet the stylist <span class="chinese-translation">與造型師會面 </span></td>
-  </tr>
-  <tr>
-  <td>4:30 pm</td>
-  <td>Photographer & Videographer arrives <span class="chinese-translation">攝影師 & 錄影師到達</span></td>
-  <td>Point Person <span class="chinese-translation">聯絡人</span></td>
-  <td>Meet the photographer team and show them around <span class="chinese-translation">與攝影團隊會面並帶他們四處參觀 </span></td>
-  </tr>
-  <tr>
-  <td>4:30 pm</td>
-  <td>Ceremony area & audio equipment <span class="chinese-translation">儀式區 & 音訊設備</span></td>
-  <td>Tech & Ambiance Lead <span class="chinese-translation">技術 & 氛圍負責人</span></td>
-  <td>Set up speakers & microphones. Check aesthetics, florist set up, chairs, walkway <span class="chinese-translation">設置揚聲器 & 麥克風。檢查美觀、花藝師設置、椅子、走道 </span></td>
-  </tr>
-  <tr>
-  <td>5:00 pm</td>
-  <td>Gelato Cart Arrives <span class="chinese-translation">義式冰淇淋車到達</span></td>
-  <td>Point Person <span class="chinese-translation">聯絡人</span></td>
-  <td>Greet the gelato cart vendor. Guide them to their designated setup location and confirm their service start time. <span class="chinese-translation">迎接義式冰淇淋車供應商。引導他們到指定的設置位置並確認他們的服務開始時間。</span></td>
-  </tr>
-  <tr>
-  <td>5:00 pm</td>
-  <td>Appetizer & Drink Stations <span class="chinese-translation">開胃菜 & 飲料站</span></td>
-  <td>Guest Greeter & Guide <span class="chinese-translation">訪客接待員 & 引導</span></td>
-  <td>Support chef team for apperitivo arrangement. Ensure everything is beautifully presented, and plates, napkins, and glasses are stocked <span class="chinese-translation">支援主廚團隊安排餐前酒。確保一切都精美呈現，並備有盤子、餐巾和玻璃杯 </span></td>
-  </tr>
-  <tr>
-  <td>5:00 pm</td>
-  <td>Set Up Instant Camera Station <span class="chinese-translation">設置即可拍相機站</span></td>
-  <td>Activities Coordinator <span class="chinese-translation">活動協調員</span></td>
-  <td>Designate a spot for the instant camera. Lay out the camera, extra film, batteries, any props, and a guest book for guests to place their photos in <span class="chinese-translation">為即可拍相機指定一個位置。佈置相機、額外的底片、電池、任何道具，以及供訪客放置照片的留言簿 </span></td>
-  </tr>
-  <tr>
-  <td>5:00 pm</td>
-  <td>First Look and Family Photos <span class="chinese-translation">第一眼和家庭照片</span></td>
-  <td>Activities Coordinator <span class="chinese-translation">活動協調員</span></td>
-  <td>Bring all family in for first look & group photos <span class="chinese-translation">帶領所有家人進行第一眼 & 合照 </span></td>
-  </tr>
-  <tr>
-  <td>5:30 pm</td>
-  <td>Final Ambiance Check <span class="chinese-translation">最後氛圍檢查</span></td>
-  <td>Tech & Ambiance Lead <span class="chinese-translation">技術 & 氛圍負責人</span></td>
-  <td>Start pre-ceremony background music at a low, pleasant volume. Do a final check of the microphone levels. <span class="chinese-translation">以低而悅耳的音量開始儀式前的背景音樂。最後檢查麥克風音量。</span></td>
-  </tr>
-  <tr>
-  <td>5:45 pm</td>
-  <td>All Helpers: Final Briefing <span class="chinese-translation">所有幫手：最後簡報</span></td>
-  <td>Point Person <span class="chinese-translation">聯絡人</span></td>
-  <td>Huddle with the friend group to do a quick 5-minute rundown of the upcoming events (guest arrival, ceremony start) to ensure everyone is on the same page. <span class="chinese-translation">與朋友們聚集在一起，快速進行 5 分鐘的即將到來的活動（訪客到達、儀式開始）的概述，以確保每個人都在同一個頁面上。[</span></td>
-  </tr>
-  <tr>
-  <td>5:45 pm</td>
-  <td>Final Ambiance Check <span class="chinese-translation">最後氛圍檢查</span></td>
-  <td>Tech & Ambiance Lead <span class="chinese-translation">技術 & 氛圍負責人</span></td>
-  <td>Start pre-ceremony background music at a low, pleasant volume. Do a final check of the microphone levels. <span class="chinese-translation">以低而悅耳的音量開始儀式前的背景音樂。最後檢查麥克風音量。</span></td>
-  </tr>
-  <tr>
-  <td>6:00 pm</td>
-  <td>GUESTS BEGIN TO ARRIVE <span class="chinese-translation">訪客開始到達</span></td>
-  <td></td>
-  <td></td>
-  </tr>
-  <tr>
-  <td>6:00 pm</td>
-  <td>Welcome & Direct Guests <span class="chinese-translation">歡迎 & 引導訪客</span></td>
-  <td>Guest Greeter & Guide <span class="chinese-translation">訪客接待員 & 引導</span></td>
-  <td>Warmly welcome guests. Direct them to the appetizer and drink stations, restrooms, and encourage them to mingle. <span class="chinese-translation">熱情地歡迎訪客。引導他們到開胃菜和飲料站、洗手間，並鼓勵他們交流。</span></td>
-  </tr>
-  <tr>
-  <td>6:00 pm</td>
-  <td>Encourage Camera Fun <span class="chinese-translation">鼓勵相機樂趣</span></td>
-  <td>Activities Coordinator <span class="chinese-translation">活動協調員</span></td>
-  <td>Mingle with guests and encourage them to use the instant camera. Offer to take pictures for them. Refill camera paper <span class="chinese-translation">與訪客交流並鼓勵他們使用即可拍相機。主動為他們拍照。補充相機紙 [引用: 3]</span></td>
-  </tr>
-  <tr>
-  <td>6:50 pm</td>
-  <td>First Call for Ceremony <span class="chinese-translation">第一次儀式呼叫</span></td>
-  <td>Guest Greeter & Guide <span class="chinese-translation">訪客接待員 & 引導</span></td>
-  <td>Make a friendly announcement encouraging guests to begin finding their seats for the ceremony. <span class="chinese-translation">鼓勵訪客開始尋找他們的座位。</span></td>
-  </tr>
-  <tr>
-  <td>6:55 pm</td>
-  <td>Final Call & Line Up <span class="chinese-translation">最後呼叫 & 排隊</span></td>
-  <td>Point Person <span class="chinese-translation">聯絡人</span></td>
-  <td>Ensure the wedding party is lined up and ready for the processional. Give the Tech Lead the cue that you are ready. <span class="chinese-translation">確保婚禮隊伍已排隊並準備好入場。向技術負責人發出您已準備好的提示。</span></td>
-  </tr>
-  <tr>
-  <td>7:00 pm</td>
-  <td>CEREMONY BEGINS <span class="chinese-translation">儀式開始</span></td>
-  <td></td>
-  <td></td>
-  </tr>
-  <tr>
-  <td>7:00 pm</td>
-  <td>Play Processional Music <span class="chinese-translation">播放入場音樂</span></td>
-  <td>Tech & Ambiance Lead <span class="chinese-translation">技術 & 氛圍負責人</span></td>
-  <td>Start the ceremony music as the processional begins. Monitor sound levels throughout the ceremony. <span class="chinese-translation">隨著入場開始播放儀式音樂。在整個儀式過程中監控音量。</span></td>
-  </tr>
-  <tr>
-  <td>7:30 pm</td>
-  <td>Play Recessional Music <span class="chinese-translation">播放退場音樂</span></td>
-  <td>Tech & Ambiance Lead <span class="chinese-translation">技術 & 氛圍負責人</span></td>
-  <td>Play the joyful recessional music as the ceremony concludes. Transition to more upbeat post-ceremony music, <span class="chinese-translation">隨著儀式結束，播放歡快的退場音樂。過渡到更歡快的儀式後音樂</span></td>
-  </tr>
-  <tr>
-  <td>7:30 pm</td>
-  <td>Direct Guests to Cocktail Hour <span class="chinese-translation">引導訪客到雞尾酒時間</span></td>
-  <td>Guest Greeter & Guide <span class="chinese-translation">訪客接待員 & 引導</span></td>
-  <td>Guide guests towards the reception area. Announce that dinner will begin at 8:00 PM <span class="chinese-translation">引導訪客前往接待區。宣布晚餐將於晚上 8:00 開始 </span></td>
-  </tr>
-  <tr>
-  <td>7:30 pm</td>
-  <td>Group Photos, Encourage Camera Fun <span class="chinese-translation">合照，鼓勵用相機/span></td>
-  <td>Activities Coordinator <span class="chinese-translation">活動協調員</span></td>
-  <td>Continue encouraging guests to use the camera. Assist photographer and guests for taking group photos <span class="chinese-translation">繼續鼓勵訪客使用相機。協助攝影師和訪客拍攝合照 </span></td>
-  </tr>
-  <tr>
-  <td>7:30 pm</td>
-  <td>Dinner Table Set Up <span class="chinese-translation">晚餐餐桌設置</span></td>
-  <td>Point Person <span class="chinese-translation">聯絡人</span></td>
-  <td>Place name cards & gifts on the plates. Check overall aesthetics. Coordinate with chef to confirm start time. <span class="chinese-translation">在盤子上放置名片 & 禮物。檢查整體美觀。與主廚協調以確認開始時間。</span></td>
-  </tr>
-  <tr>
-  <td>7:45 pm</td>
-  <td>Audio Set Up for Dinner <span class="chinese-translation">晚餐音訊設置</span></td>
-  <td>Tech & Ambiance Lead <span class="chinese-translation">技術 & 氛圍負責人</span></td>
-  <td>Move the speakers to the dinner area, continue music <span class="chinese-translation">將揚聲器移至晚餐區，繼續播放音樂 </span></td>
-  </tr>
-  <tr>
-  <td>8:00 pm</td>
-  <td>DINNER BEGINS <span class="chinese-translation">晚餐開始</span></td>
-  <td></td>
-  <td></td>
-  </tr>
-  <tr>
-  <td>8:00 pm</td>
-  <td>Dinner Announcement <span class="chinese-translation">晚餐公告</span></td>
-  <td>Guest Greeter & Guide <span class="chinese-translation">訪客接待員 & 引導</span></td>
-  <td>Make a clear announcement that dinner is being served and guide guests on how to proceed (e.g.. finding their seats, heading to the buffet). <span class="chinese-translation">清楚地宣布晚餐已上菜，並引導訪客如何進行（例如，找到他們的座位，前往自助餐）。</span></td>
-  </tr>
-  <tr>
-  <td>8:30 pm</td>
-  <td>Coordinate for Wedding Cake <span class="chinese-translation">協調婚禮蛋糕</span></td>
-  <td>Point Person <span class="chinese-translation">聯絡人</span></td>
-  <td>Check in with the dinner caterer to confirm time for wedding cake <span class="chinese-translation">與晚餐承辦商確認婚禮蛋糕的時間 </span></td>
-  </tr>
-  <tr>
-  <td>8:45 pm</td>
-  <td>Wedding Cake Cutting <span class="chinese-translation">切蛋糕</span></td>
-  <td>Point Person <span class="chinese-translation">聯絡人</span></td>
-  <td>Assist if needed <span class="chinese-translation">如果需要，請協助 </span></td>
-  </tr>
-  <tr>
-  <td>8:45 pm</td>
-  <td>Audio Set Up for Fun Event <span class="chinese-translation">趣味活動音訊設置</span></td>
-  <td>Tech & Ambiance Lead <span class="chinese-translation">技術 & 氛圍負責人</span></td>
-  <td>Final check of microphone <span class="chinese-translation">最後檢查麥克風 </span></td>
-  </tr>
-  <tr>
-  <td>9:00 pm</td>
-  <td>Fun Event - Karaoke <span class="chinese-translation">趣味活動 - 卡拉 OK</span></td>
-  <td>Tech & Ambiance Lead <span class="chinese-translation">技術 & 氛圍負責人</span></td>
-  <td>Assist if needed <span class="chinese-translation">如果需要，請協助 </span></td>
-  </tr>
-  </tbody>
-  </table>
- </body>
- </html>
+        /* New style for the filter container */
+        .filter-container {
+            margin-bottom: 15px;
+            text-align: right; /* Align filter to the right on larger screens */
+        }
+
+        .filter-container select {
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 1em;
+        }
+
+
+        .chinese-translation {
+            display: block;
+            font-size: 0.8em;
+            color: #777;
+        }
+
+        /* Responsive styles */
+        @media screen and (max-width: 768px) {
+            body {
+                margin: 10px;
+            }
+
+            /* Adjust filter container for small screens */
+            .filter-container {
+                text-align: left; /* Align filter to the left on smaller screens */
+            }
+
+            .filter-container select {
+                width: 100%; /* Make filter full width */
+                box-sizing: border-box; /* Include padding and border in the element's total width and height */
+            }
+
+            table, thead, tbody, th, td, tr {
+                display: block;
+            }
+
+            thead tr {
+                position: absolute;
+                top: -9999px;
+                left: -9999px;
+            }
+
+            tr {
+                border: 1px solid #e4e7eb;
+                margin-bottom: 15px;
+            }
+
+            td {
+                border: none;
+                border-bottom: 1px solid #e4e7eb;
+                position: relative;
+                padding-left: 50%;
+                text-align: right;
+            }
+
+            td:before {
+                position: absolute;
+                top: 6px;
+                left: 6px;
+                width: 45%;
+                padding-right: 10px;
+                white-space: nowrap;
+                text-align: left;
+                font-weight: bold;
+            }
+
+            /* Assign data labels to cells for small screens */
+            td:nth-of-type(1):before { content: "Time 時間"; }
+            td:nth-of-type(2):before { content: "Task 任務"; }
+            td:nth-of-type(3):before { content: "Primary Person Assigned 主要負責人"; }
+            td:nth-of-type(4):before { content: "Notes & Details 備註 & 詳細資訊"; }
+
+            /* Hide the filter within the table header for small screens */
+            th select {
+                display: none;
+            }
+        }
+    </style>
+    <script>
+        function filterTable() {
+            var primaryPersonFilter = document.getElementById("primaryPersonFilter").value.toLowerCase();
+
+            var table = document.querySelector("table");
+            var tr = table.getElementsByTagName("tr");
+
+            for (i = 0; i < tr.length; i++) { // Start from index 0 to include all rows, then skip the header
+                // If it's a header row, we might want to skip it or handle it differently for display purposes
+                // For this filter, we only care about the data rows (tbody)
+                if (tr[i].parentNode.tagName === 'TBODY') {
+                    var primaryPersonCell = tr[i].getElementsByTagName("td")[2];
+                    if (primaryPersonCell) {
+                        var primaryPerson = primaryPersonCell.textContent.toLowerCase();
+                        tr[i].style.display = ""; // Reset display
+
+                        if (primaryPersonFilter && !primaryPerson.includes(primaryPersonFilter)) {
+                            tr[i].style.display = "none";
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Event Day Schedule <span class="chinese-translation">日程表</span></h1>
+
+    <h2>Roles and Responsibilities <span class="chinese-translation">角色與職責</span></h2>
+    <div class="role-description">
+        <h3>Point Person <span class="chinese-translation">聯絡人</span></h3>
+        <p>The main point of contact for vendors and the keeper of the master schedule. They will help oversee everything and troubleshoot any issues. <span class="chinese-translation">廠商的主要聯絡人以及總行程的負責人。他們將協助監督所有事項並排除任何問題。</span></p>
+        <h3>Guest Greeter & Guide <span class="chinese-translation">訪客接待員 & 引導</span></h3>
+        <p>This friendly face will welcome guests, answer their questions, and make sure they feel comfortable and know where to go. <span class="chinese-translation">這位友善的人將歡迎訪客，回答他們的問題，並確保他們感到舒適並知道該去哪裡。</span></p>
+        <h3>Tech & Ambiance Lead <span class="chinese-translation">技術 & 氛圍負責人</span></h3>
+        <p>This person is in charge of the sound system, music cues, and overall vibe of the space. <span class="chinese-translation">此人負責音響系統、音樂提示和空間的整體氛圍。</span></p>
+        <h3>Activities Coordinator <span class="chinese-translation">活動協調員</span></h3>
+        <p>This friend will manage the fun interactive elements like the instant camera and guest book. <span class="chinese-translation">這位朋友將管理有趣的互動元素，例如即可拍相機和留言簿。</span></p>
+    </div>
+
+    ---
+
+    <h2>Schedule <span class="chinese-translation">行程表</span></h2>
+
+    <div class="filter-container">
+        Primary Person Assigned <span class="chinese-translation">主要負責人</span>:
+        <select id="primaryPersonFilter" onchange="filterTable()">
+            <option value="">All Roles <span class="chinese-translation">所有角色</span></option>
+            <option value="point person">Point Person <span class="chinese-translation">聯絡人</span></option>
+            <option value="guest greeter & guide">Guest Greeter & Guide <span class="chinese-translation">訪客接待員 & 引導</span></option>
+            <option value="tech & ambiance lead">Tech & Ambiance Lead <span class="chinese-translation">技術 & 氛圍負責人</span></option>
+            <option value="activities coordinator">Activities Coordinator <span class="chinese-translation">活動協調員</span></option>
+        </select>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Time <span class="chinese-translation">時間</span></th>
+                <th>Task <span class="chinese-translation">任務</span></th>
+                <th>Primary Person Assigned <span class="chinese-translation">主要負責人</span></th>
+                <th>Notes & Details <span class="chinese-translation">備註 & 詳細資訊</span></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>2:45 pm</td>
+                <td>Final Venue Check <span class="chinese-translation">最後場地檢查</span></td>
+                <td>Point Person <span class="chinese-translation">聯絡人</span></td>
+                <td>Ensure everything is clean and ready for setup. <span class="chinese-translation">確保一切乾淨。</span></td>
+            </tr>
+            <tr>
+                <td>3:00 pm</td>
+                <td>Florist Arrives <span class="chinese-translation">花藝師到達</span></td>
+                <td>Point Person <span class="chinese-translation">聯絡人</span></td>
+                <td>Meet the florist upon arrival. Show them where the ceremony arch, tables, and other decoration points are. <span class="chinese-translation">花藝師到達時與之會面。向他們展示儀式拱門、桌子和其他裝飾點的位置。</span></td>
+            </tr>
+            <tr>
+                <td>4:00 pm</td>
+                <td>Make-up & Hair Stylist Arrives <span class="chinese-translation">化妝 & 髮型設計師到達</span></td>
+                <td>Point Person</td>
+                <td>Meet the stylist <span class="chinese-translation">與造型師會面 </span></td>
+            </tr>
+            <tr>
+                <td>4:30 pm</td>
+                <td>Photographer & Videographer arrives <span class="chinese-translation">攝影師 & 錄影師到達</span></td>
+                <td>Point Person <span class="chinese-translation">聯絡人</span></td>
+                <td>Meet the photographer team and show them around <span class="chinese-translation">與攝影團隊會面並帶他們四處參觀 </span></td>
+            </tr>
+            <tr>
+                <td>4:30 pm</td>
+                <td>Ceremony area & audio equipment <span class="chinese-translation">儀式區 & 音訊設備</span></td>
+                <td>Tech & Ambiance Lead <span class="chinese-translation">技術 & 氛圍負責人</span></td>
+                <td>Set up speakers & microphones. Check aesthetics, florist set up, chairs, walkway <span class="chinese-translation">設置揚聲器 & 麥克風。檢查美觀、花藝師設置、椅子、走道 </span></td>
+            </tr>
+            <tr>
+                <td>5:00 pm</td>
+                <td>Gelato Cart Arrives <span class="chinese-translation">義式冰淇淋車到達</span></td>
+                <td>Point Person <span class="chinese-translation">聯絡人</span></td>
+                <td>Greet the gelato cart vendor. Guide them to their designated setup location and confirm their service start time. <span class="chinese-translation">迎接義式冰淇淋車供應商。引導他們到指定的設置位置並確認他們的服務開始時間。</span></td>
+            </tr>
+            <tr>
+                <td>5:00 pm</td>
+                <td>Appetizer & Drink Stations <span class="chinese-translation">開胃菜 & 飲料站</span></td>
+                <td>Guest Greeter & Guide <span class="chinese-translation">訪客接待員 & 引導</span></td>
+                <td>Support chef team for apperitivo arrangement. Ensure everything is beautifully presented, and plates, napkins, and glasses are stocked <span class="chinese-translation">支援主廚團隊安排餐前酒。確保一切都精美呈現，並備有盤子、餐巾和玻璃杯 </span></td>
+            </tr>
+            <tr>
+                <td>5:00 pm</td>
+                <td>Set Up Instant Camera Station <span class="chinese-translation">設置即可拍相機站</span></td>
+                <td>Activities Coordinator <span class="chinese-translation">活動協調員</span></td>
+                <td>Designate a spot for the instant camera. Lay out the camera, extra film, batteries, any props, and a guest book for guests to place their photos in <span class="chinese-translation">為即可拍相機指定一個位置。佈置相機、額外的底片、電池、任何道具，以及供訪客放置照片的留言簿 </span></td>
+            </tr>
+            <tr>
+                <td>5:00 pm</td>
+                <td>First Look and Family Photos <span class="chinese-translation">第一眼和家庭照片</span></td>
+                <td>Activities Coordinator <span class="chinese-translation">活動協調員</span></td>
+                <td>Bring all family in for first look & group photos <span class="chinese-translation">帶領所有家人進行第一眼 & 合照 </span></td>
+            </tr>
+            <tr>
+                <td>5:30 pm</td>
+                <td>Final Ambiance Check <span class="chinese-translation">最後氛圍檢查</span></td>
+                <td>Tech & Ambiance Lead <span class="chinese-translation">技術 & 氛圍負責人</span></td>
+                <td>Start pre-ceremony background music at a low, pleasant volume. Do a final check of the microphone levels. <span class="chinese-translation">以低而悅耳的音量開始儀式前的背景音樂。最後檢查麥克風音量。</span></td>
+            </tr>
+            <tr>
+                <td>5:45 pm</td>
+                <td>All Helpers: Final Briefing <span class="chinese-translation">所有幫手：最後簡報</span></td>
+                <td>Point Person <span class="chinese-translation">聯絡人</span></td>
+                <td>Huddle with the friend group to do a quick 5-minute rundown of the upcoming events (guest arrival, ceremony start) to ensure everyone is on the same page. <span class="chinese-translation">與朋友們聚集在一起，快速進行 5 分鐘的即將到來的活動（訪客到達、儀式開始）的概述，以確保每個人都在同一個頁面上。[</span></td>
+            </tr>
+            <tr>
+                <td>5:45 pm</td>
+                <td>Final Ambiance Check <span class="chinese-translation">最後氛圍檢查</span></td>
+                <td>Tech & Ambiance Lead <span class="chinese-translation">技術 & 氛圍負責人</span></td>
+                <td>Start pre-ceremony background music at a low, pleasant volume. Do a final check of the microphone levels. <span class="chinese-translation">以低而悅耳的音量開始儀式前的背景音樂。最後檢查麥克風音量。</span></td>
+            </tr>
+            <tr>
+                <td>6:00 pm</td>
+                <td>GUESTS BEGIN TO ARRIVE <span class="chinese-translation">訪客開始到達</span></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>6:00 pm</td>
+                <td>Welcome & Direct Guests <span class="chinese-translation">歡迎 & 引導訪客</span></td>
+                <td>Guest Greeter & Guide <span class="chinese-translation">訪客接待員 & 引導</span></td>
+                <td>Warmly welcome guests. Direct them to the appetizer and drink stations, restrooms, and encourage them to mingle. <span class="chinese-translation">熱情地歡迎訪客。引導他們到開胃菜和飲料站、洗手間，並鼓勵他們交流。</span></td>
+            </tr>
+            <tr>
+                <td>6:00 pm</td>
+                <td>Encourage Camera Fun <span class="chinese-translation">鼓勵相機樂趣</span></td>
+                <td>Activities Coordinator <span class="chinese-translation">活動協調員</span></td>
+                <td>Mingle with guests and encourage them to use the instant camera. Offer to take pictures for them. Refill camera paper <span class="chinese-translation">與訪客交流並鼓勵他們使用即可拍相機。主動為他們拍照。補充相機紙 [引用: 3]</span></td>
+            </tr>
+            <tr>
+                <td>6:50 pm</td>
+                <td>First Call for Ceremony <span class="chinese-translation">第一次儀式呼叫</span></td>
+                <td>Guest Greeter & Guide <span class="chinese-translation">訪客接待員 & 引導</span></td>
+                <td>Make a friendly announcement encouraging guests to begin finding their seats for the ceremony. <span class="chinese-translation">鼓勵訪客開始尋找他們的座位。</span></td>
+            </tr>
+            <tr>
+                <td>6:55 pm</td>
+                <td>Final Call & Line Up <span class="chinese-translation">最後呼叫 & 排隊</span></td>
+                <td>Point Person <span class="chinese-translation">聯絡人</span></td>
+                <td>Ensure the wedding party is lined up and ready for the processional. Give the Tech Lead the cue that you are ready. <span class="chinese-translation">確保婚禮隊伍已排隊並準備好入場。向技術負責人發出您已準備好的提示。</span></td>
+            </tr>
+            <tr>
+                <td>7:00 pm</td>
+                <td>CEREMONY BEGINS <span class="chinese-translation">儀式開始</span></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>7:00 pm</td>
+                <td>Play Processional Music <span class="chinese-translation">播放入場音樂</span></td>
+                <td>Tech & Ambiance Lead <span class="chinese-translation">技術 & 氛圍負責人</span></td>
+                <td>Start the ceremony music as the processional begins. Monitor sound levels throughout the ceremony. <span class="chinese-translation">隨著入場開始播放儀式音樂。在整個儀式過程中監控音量。</span></td>
+            </tr>
+            <tr>
+                <td>7:30 pm</td>
+                <td>Play Recessional Music <span class="chinese-translation">播放退場音樂</span></td>
+                <td>Tech & Ambiance Lead <span class="chinese-translation">技術 & 氛圍負責人</span></td>
+                <td>Play the joyful recessional music as the ceremony concludes. Transition to more upbeat post-ceremony music, <span class="chinese-translation">隨著儀式結束，播放歡快的退場音樂。過渡到更歡快的儀式後音樂</span></td>
+            </tr>
+            <tr>
+                <td>7:30 pm</td>
+                <td>Direct Guests to Cocktail Hour <span class="chinese-translation">引導訪客到雞尾酒時間</span></td>
+                <td>Guest Greeter & Guide <span class="chinese-translation">訪客接待員 & 引導</span></td>
+                <td>Guide guests towards the reception area. Announce that dinner will begin at 8:00 PM <span class="chinese-translation">引導訪客前往接待區。宣布晚餐將於晚上 8:00 開始 </span></td>
+            </tr>
+            <tr>
+                <td>7:30 pm</td>
+                <td>Group Photos, Encourage Camera Fun <span class="chinese-translation">合照，鼓勵用相機/span></td>
+                <td>Activities Coordinator <span class="chinese-translation">活動協調員</span></td>
+                <td>Continue encouraging guests to use the camera. Assist photographer and guests for taking group photos <span class="chinese-translation">繼續鼓勵訪客使用相機。協助攝影師和訪客拍攝合照 </span></td>
+            </tr>
+            <tr>
+                <td>7:30 pm</td>
+                <td>Dinner Table Set Up <span class="chinese-translation">晚餐餐桌設置</span></td>
+                <td>Point Person <span class="chinese-translation">聯絡人</span></td>
+                <td>Place name cards & gifts on the plates. Check overall aesthetics. Coordinate with chef to confirm start time. <span class="chinese-translation">在盤子上放置名片 & 禮物。檢查整體美觀。與主廚協調以確認開始時間。</span></td>
+            </tr>
+            <tr>
+                <td>7:45 pm</td>
+                <td>Audio Set Up for Dinner <span class="chinese-translation">晚餐音訊設置</span></td>
+                <td>Tech & Ambiance Lead <span class="chinese-translation">技術 & 氛圍負責人</span></td>
+                <td>Move the speakers to the dinner area, continue music <span class="chinese-translation">將揚聲器移至晚餐區，繼續播放音樂 </span></td>
+            </tr>
+            <tr>
+                <td>8:00 pm</td>
+                <td>DINNER BEGINS <span class="chinese-translation">晚餐開始</span></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>8:00 pm</td>
+                <td>Dinner Announcement <span class="chinese-translation">晚餐公告</span></td>
+                <td>Guest Greeter & Guide <span class="chinese-translation">訪客接待員 & 引導</span></td>
+                <td>Make a clear announcement that dinner is being served and guide guests on how to proceed (e.g.. finding their seats, heading to the buffet). <span class="chinese-translation">清楚地宣布晚餐已上菜，並引導訪客如何進行（例如，找到他們的座位，前往自助餐）。</span></td>
+            </tr>
+            <tr>
+                <td>8:30 pm</td>
+                <td>Coordinate for Wedding Cake <span class="chinese-translation">協調婚禮蛋糕</span></td>
+                <td>Point Person <span class="chinese-translation">聯絡人</span></td>
+                <td>Check in with the dinner caterer to confirm time for wedding cake <span class="chinese-translation">與晚餐承辦商確認婚禮蛋糕的時間 </span></td>
+            </tr>
+            <tr>
+                <td>8:45 pm</td>
+                <td>Wedding Cake Cutting <span class="chinese-translation">切蛋糕</span></td>
+                <td>Point Person <span class="chinese-translation">聯絡人</span></td>
+                <td>Assist if needed <span class="chinese-translation">如果需要，請協助 </span></td>
+            </tr>
+            <tr>
+                <td>8:45 pm</td>
+                <td>Audio Set Up for Fun Event <span class="chinese-translation">趣味活動音訊設置</span></td>
+                <td>Tech & Ambiance Lead <span class="chinese-translation">技術 & 氛圍負責人</span></td>
+                <td>Final check of microphone <span class="chinese-translation">最後檢查麥克風 </span></td>
+            </tr>
+            <tr>
+                <td>9:00 pm</td>
+                <td>Fun Event - Karaoke <span class="chinese-translation">趣味活動 - 卡拉 OK</span></td>
+                <td>Tech & Ambiance Lead <span class="chinese-translation">技術 & 氛圍負責人</span></td>
+                <td>Assist if needed <span class="chinese-translation">如果需要，請協助 </span></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
