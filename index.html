@@ -3,56 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>July 28 Wedding Day Rundown</title>
+    <title>Rundown</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* Custom styles for better embedding experience */
+        /* Custom styles to ensure iframe responsiveness and full height */
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: "Inter", sans-serif;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background-color: #f0f4f8; /* Light gray background */
         }
-        /* Make iframe responsive while maintaining aspect ratio */
-        .responsive-iframe-container {
+        .iframe-container {
             position: relative;
             width: 100%;
-            padding-bottom: 75%; /* 4:3 aspect ratio (height / width * 100%) - Adjust as needed */
+            padding-bottom: 75%; /* Aspect ratio 4:3 (height/width * 100%) or adjust as needed */
             height: 0;
             overflow: hidden;
+            border-radius: 0.75rem; /* Rounded corners */
         }
-        .responsive-iframe-container iframe {
+        .iframe-container iframe {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            border: 0; /* Remove default iframe border */
-            border-radius: 0.5rem; /* Match parent container's rounded corners */
+            border: 0;
+            border-radius: 0.75rem; /* Match container rounded corners */
+        }
+        @media (min-width: 768px) {
+            .iframe-container {
+                padding-bottom: 50%; /* Adjust for wider screens if desired, e.g., 16:9 aspect ratio */
+            }
         }
     </style>
 </head>
-<body class="bg-gradient-to-br from-indigo-50 to-blue-100 min-h-screen flex items-center justify-center p-4">
-
-    <div class="container mx-auto p-6 bg-white rounded-xl shadow-2xl max-w-4xl w-full">
-        <h1 class="text-4xl font-extrabold text-gray-900 mb-4 text-center">
-             Wedding Rundown
+<body class="flex flex-col items-center justify-center min-h-screen p-4 bg-gray-100">
+    <div class="container mx-auto p-6 bg-white rounded-lg shadow-xl max-w-4xl w-full flex flex-col items-center">
+        <!-- Page Title -->
+        <h1 class="text-3xl sm:text-4xl font-bold text-gray-800 mb-6 text-center">
+            Event Rundown
         </h1>
 
-        <!-- Container for the responsive iframe -->
-        <div class="responsive-iframe-container mb-8">
-            <!--
-                The Google Sheet embed code.
-                The 'src' attribute contains your specific Google Sheet URL.
-                'frameborder="0"' removes the default iframe border.
-            -->
-            <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTEke11HEYfEJUnjR3qqi_HTxhGPL7MUwmnI9H1wi3kXUMTJddIIKBD-DdQ5sKpf67HnzIUsIZOV6yM/pubhtml?gid=1754513246&amp;single=true&amp;widget=true&amp;headers=false"></iframe>
+        <!-- Iframe Container for Responsive Embedding -->
+        <div class="iframe-container mb-8 w-full">
+            <iframe
+                src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTEke11HEYfEJUnjR3qqi_HTxhGPL7MUwmnI9H1wi3kXUMTJddIIKBD-DdQ5sKpf67HnzIUsIZOV6yM/pubhtml?gid=1754513246&amp;single=true&amp;widget=true&amp;headers=false"
+                title="Google Sheet Embed"
+                allowfullscreen="true"
+                webkitallowfullscreen="true"
+                mozallowfullscreen="true"
+            ></iframe>
         </div>
 
-        <div class="text-center text-gray-600 text-sm mt-8">
-        
-            <p class="mt-2">Data updated in real-time from Google Sheets.</p>
-        </div>
+        <!-- Call to action/footer text -->
+        <p class="text-gray-500 text-sm text-center mt-4">
+            Data provided by Google Sheets.
+        </p>
     </div>
-
 </body>
 </html>
+
 
