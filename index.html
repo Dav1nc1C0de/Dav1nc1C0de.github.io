@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width"> <!-- Removed initial-scale=1.0 to enable zoom -->
     <!-- Removed <title> tag -->
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -26,7 +26,7 @@
             /* Fixed large height to show entire sheet, allowing page scroll.
                You might need to adjust this value (e.g., to 1500px, 3000px)
                to perfectly fit your specific Google Sheet's content length. */
-            height: 1600px; /* Updated height to 1800px as requested */
+            height: 1600px; /* Updated height to 1600px */
             overflow: hidden; /* Hide any internal iframe scrollbars */
             border-radius: 0.75rem; /* Rounded corners for a softer look */
             border: 1px solid rgba(0, 0, 0, 0.08); /* Light border */
@@ -59,7 +59,7 @@
                 allowfullscreen="true"
                 webkitallowfullscreen="true"
                 mozallowfullscreen="true"
-                scrolling="no" <!-- Prevents internal scrolling of the iframe -->
+                <!-- Removed scrolling="no" to allow iframe to scroll/pan with zoom -->
             ></iframe>
         </div>
 
@@ -70,6 +70,7 @@
     </div>
 </body>
 </html>
+
 
 
 
