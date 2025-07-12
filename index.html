@@ -3,68 +3,78 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rundown</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* Custom styles to ensure iframe responsiveness and full height */
+        /* Custom styles for an elegant and modern look */
         body {
-            font-family: "Inter", sans-serif;
+            font-family: "Inter", sans-serif; /* Elegant and modern font */
             margin: 0;
             padding: 0;
-            min-height: 100vh;
+            /* min-height: 100vh is acceptable here as content will likely exceed it */
             display: flex;
             flex-direction: column;
-            background-color: #f0f4f8; /* Light gray background */
+            align-items: center; /* Center content horizontally */
+            justify-content: flex-start; /* Align content to the top */
+            background-color: #f7f9fb; /* Very light, subtle background for elegance */
         }
+        /* Adjusted iframe-container for a very tall view to display the entire sheet */
         .iframe-container {
             position: relative;
             width: 100%;
-            padding-bottom: 75%; /* Aspect ratio 4:3 (height/width * 100%) or adjust as needed */
-            height: 0;
-            overflow: hidden;
-            border-radius: 0.75rem; /* Rounded corners */
+            /* Fixed large height to show entire sheet, allowing page scroll.
+               You might need to adjust this value (e.g., to 1500px, 3000px)
+               to perfectly fit your specific Google Sheet's content length. */
+            height: 1600px; /* Updated height to 1600px as requested */
+            overflow: hidden; /* Hide any internal iframe scrollbars */
+            border-radius: 0.75rem; /* Rounded corners for a softer look */
+            border: 1px solid rgba(0, 0, 0, 0.08); /* Light border */
         }
         .iframe-container iframe {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
-            height: 100%;
-            border: 0;
+            height: 100%; /* Iframe fills 100% of its parent container's height */
+            border: 0; /* Remove default iframe border */
             border-radius: 0.75rem; /* Match container rounded corners */
         }
-        @media (min-width: 768px) {
-            .iframe-container {
-                padding-bottom: 50%; /* Adjust for wider screens if desired, e.g., 16:9 aspect ratio */
-            }
-        }
+
+        /* Responsive adjustments for iframe height have been removed
+           to ensure a consistent tall display across all screen sizes. */
     </style>
 </head>
-<body class="flex flex-col items-center justify-center min-h-screen p-4 bg-gray-100">
-    <div class="container mx-auto p-6 bg-white rounded-lg shadow-xl max-w-4xl w-full flex flex-col items-center">
+<body class="flex flex-col items-center justify-start min-h-screen p-4 bg-gray-100">
+    <div class="container mx-auto p-8 bg-white rounded-xl shadow-xl ring-1 ring-black/5 max-w-4xl w-full flex flex-col items-center transform transition-all duration-300 ease-in-out hover:scale-[1.005] my-8">
         <!-- Page Title -->
-        <h1 class="text-3xl sm:text-4xl font-bold text-gray-800 mb-6 text-center">
-            Event Rundown
+        <h1 class="text-4xl sm:text-5xl font-extrabold text-neutral-800 mb-6 text-center leading-tight">
+            Comprehensive Data Overview
         </h1>
 
-        <!-- Iframe Container for Responsive Embedding -->
-        <div class="iframe-container mb-8 w-full">
+        <!-- Description -->
+        <p class="text-neutral-600 text-lg mb-10 text-center max-w-2xl">
+            Explore the embedded Google Sheet below, presenting key insights and real-time data updates in a clean, sophisticated layout. Please **scroll the entire webpage** to view all of the extensive content.
+        </p>
+
+        <!-- Iframe Container for the full-height sheet -->
+        <div class="iframe-container mb-10 w-full shadow-md hover:shadow-lg transition-shadow duration-300">
             <iframe
                 src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTEke11HEYfEJUnjR3qqi_HTxhGPL7MUwmnI9H1wi3kXUMTJddIIKBD-DdQ5sKpf67HnzIUsIZOV6yM/pubhtml?gid=1754513246&amp;single=true&amp;widget=true&amp;headers=false"
                 title="Google Sheet Embed"
                 allowfullscreen="true"
                 webkitallowfullscreen="true"
                 mozallowfullscreen="true"
+                scrolling="no" <!-- Prevents internal scrolling of the iframe -->
             ></iframe>
         </div>
 
         <!-- Call to action/footer text -->
-        <p class="text-gray-500 text-sm text-center mt-4">
-            Data provided by Google Sheets.
+        <p class="text-neutral-500 text-sm text-center mt-6">
+            Presented with data from Google Sheets.
         </p>
     </div>
 </body>
 </html>
+
 
 
