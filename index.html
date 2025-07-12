@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Removed <title> tag -->
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
@@ -16,16 +17,16 @@
             flex-direction: column;
             align-items: center; /* Center content horizontally */
             justify-content: flex-start; /* Align content to the top */
-            background-color: #f7f9fb; /* Very light, subtle background for elegance */
+            background-color: #ffffff; /* Changed to white */
         }
         /* Adjusted iframe-container for a very tall view to display the entire sheet */
         .iframe-container {
             position: relative;
-            width: 1000px;
+            width: 100%;
             /* Fixed large height to show entire sheet, allowing page scroll.
                You might need to adjust this value (e.g., to 1500px, 3000px)
                to perfectly fit your specific Google Sheet's content length. */
-            height: 1600px; /* Updated height to 1600px as requested */
+            height: 1600px; /* Updated height to 1800px as requested */
             overflow: hidden; /* Hide any internal iframe scrollbars */
             border-radius: 0.75rem; /* Rounded corners for a softer look */
             border: 1px solid rgba(0, 0, 0, 0.08); /* Light border */
@@ -44,12 +45,13 @@
            to ensure a consistent tall display across all screen sizes. */
     </style>
 </head>
-<body class="flex flex-col items-center justify-start min-h-screen p-4 bg-gray-100">
-    <div class="container mx-auto p-8 bg-white rounded-xl shadow-xl ring-1 ring-black/5 max-w-full md:max-w-4xl w-full flex flex-col items-center transform transition-all duration-300 ease-in-out hover:scale-[1.005] my-8">
+<body class="flex flex-col items-center justify-start min-h-screen p-4 bg-white">
+    <div class="container mx-auto p-8 rounded-xl max-w-full md:max-w-4xl w-full flex flex-col items-center my-8">
+        <!-- Removed Page Title (h1) -->
 
         <!-- Description -->
         <p class="text-neutral-600 text-lg mb-10 text-center max-w-2xl">
-            Wedding Day Rundown
+            Explore the embedded Google Sheet below, presenting key insights and real-time data updates in a clean, sophisticated layout. Please **scroll the entire webpage** to view all of the extensive content.
         </p>
 
         <!-- Iframe Container for the full-height sheet -->
@@ -71,6 +73,7 @@
     </div>
 </body>
 </html>
+
 
 
 
